@@ -37,6 +37,13 @@
     border-radius: 25px;
     width: 500px;
     margin: auto;
+    position: relative;
+    z-index: -1;
+}
+
+#message {
+    font-size: 28px;
+    font-weight: -100;
 }
 
 #post-user-icon img {
@@ -92,4 +99,16 @@
 .write-comment {
     display: flex;
     margin-top: 20px;
+}
+
+
+.edit {
+    width: fit-content;
+    position: absolute;
+    right: 40px;
+}
+
+.edit img {
+    width: 20px;
+    height: 20px;
 }

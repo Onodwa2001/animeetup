@@ -1,4 +1,5 @@
 <div class="feed-wrapper">
+
     <section id="personal">
         <div class="profile">
             <div class="picture">
@@ -9,8 +10,7 @@
     </section>
     
     <section id="posts">
-        <app-post></app-post>
-        <app-post></app-post>
+        <app-post [data]="postData" *ngFor="let postData of posts"></app-post>
     </section>
     
     <section id="requests">

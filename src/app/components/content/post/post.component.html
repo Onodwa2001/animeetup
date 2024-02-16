@@ -1,21 +1,25 @@
 <div class="post">
+    <div class="edit">
+        <img src="../../../../assets/icons/file-edit.png" alt="">
+    </div>
+
     <div class="identity">
         <div class="profile-image">
             <img src="../../../../assets/profile_pictures/test_pp.jpg" alt="" srcset="">
         </div>
         <div class="name-and-date">
-            <h1>Michael Scott <span id="post-user-icon"><img src="../../../../assets/icons/user.png" alt=""></span></h1>
-            <p>20 January 2024 12:44</p>
+            <h1>{{ data.name }} <span id="post-user-icon"><img src="../../../../assets/icons/user.png" alt=""></span></h1>
+            <p>{{ data.date }}</p>
         </div>
         
     </div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores a consequuntur, exercitationem earum error omnis autem beatae, dolores, temporibus architecto suscipit praesentium accusantium nam voluptates? Vel rem sequi corrupti.</p>
+    <p id="message" #postMessage>{{ data.message }}</p>
     <hr/>
     <div class="interaction">
         <div class="vote">
             <div class="votes-wrap">
                 <img src="../../../../assets/icons/up.png" alt="" srcset="">
-                <span id="votes">122</span>
+                <span id="votes">{{ data.votes }}</span>
                 <img src="../../../../assets/icons/down.png" alt="">
             </div>
         </div>
@@ -23,7 +27,7 @@
         <div class="comment">
             <div class="comment-wrap">
                 <img src="../../../../assets/icons/comment-dots.png" alt="" srcset="">
-                <span id="comments">27</span>
+                <span id="comments">{{ data.comments }}</span>
             </div>
         </div>
 
