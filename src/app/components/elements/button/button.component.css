@@ -1,0 +1,14 @@
+button {
+    background-color: crimson;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background: linear-gradient(rgb(96, 96, 170), rgb(122, 45, 21));
+    transition: .3s;
+}
+

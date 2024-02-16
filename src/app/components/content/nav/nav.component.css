@@ -1,0 +1,46 @@
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    position: absolute;
+    right: 20px;
+}
+
+ul li {
+    margin-left: 15px;
+}
+
+nav {
+    display: flex;
+    /* background-color: rgb(206, 207, 207); */
+    padding: 10px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border-bottom: solid black 1px;
+    position: fixed;
+    width: calc(100% - 20px);
+    background-color: white;
+}
+
+app-input-box {
+    margin: 0 auto 0 auto;
+}
+
+img {
+    width: 20px;
+    height: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border: solid black 1px;
+    border-radius: 50px;
+    padding: 10px;
+    position: absolute;
+    left: 20px;
+}
+
