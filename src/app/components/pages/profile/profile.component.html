@@ -1,1 +1,25 @@
-<p>profile works!</p>
+<div class="profile">
+    <div class="profile-wrap">
+        <div class="profile-details">
+            <div class="name-and-pic">
+                <div class="picture">
+                    <img src="../../../../assets/profile_pictures/Screenshot 2024-02-18 193439.png" alt="" srcset="">
+                </div>
+                <div class="name">
+                    <h1>{{ loggedInUser.sub }}</h1>
+                </div>
+            </div>
+
+            <div class="details">
+                <h1>{{ loggedInUser.user.firstName }} {{ loggedInUser.user.lastName }}</h1>
+                <br/>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum molestiae nemo esse fuga blanditiis corporis expedita?</p>
+                <br/>
+                <app-button name="Edit"></app-button>
+            </div>
+        </div>
+        <div class="loggedInUserPosts">
+            <app-post [data]="post" *ngFor="let post of myPosts"></app-post>
+        </div>
+    </div>    
+</div>

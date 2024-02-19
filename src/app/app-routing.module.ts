@@ -4,6 +4,7 @@ import { NewsfeedComponent } from './components/pages/newsfeed/newsfeed.componen
 import { LoginComponent } from './components/pages/login/login.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { RegisterComponent } from './components/pages/register/register.component';
+import { SearchComponent } from './components/pages/search/search.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'search',
+    component: SearchComponent
   }
 ];
 

@@ -1,0 +1,74 @@
+.profile {
+    padding-top: 70px;
+}
+
+.profile-wrap {
+    max-width: 700px;
+    margin: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+
+.profile-wrap::-webkit-scrollbar {
+    width: 5px; /* Set the width of the scrollbar */
+}
+
+.profile-wrap::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Roundness of the scrollbar thumb */
+}
+
+.profile-wrap::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color of the scrollbar track */
+}
+
+.profile-wrap .profile-details {
+    background-color: white;
+    padding-bottom: 50px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.loggedInUserPosts {
+    margin-top: 40px;
+}
+
+.picture {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    bottom: -70px;
+    left: 20px;
+    border: solid rgb(230, 62, 16) 5px;
+}
+
+.picture img {
+    width: 200px;
+    height: 200px;
+}
+
+.name-and-pic {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('../../../../assets/Other/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg');
+    color: white;
+    position: relative;
+    min-height: 260px;
+}
+
+.name {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.details {
+    padding-top: 100px;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+.details p {
+    color: #5d5a5a;
+}

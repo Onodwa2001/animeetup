@@ -1,19 +1,49 @@
 <div class="feed-wrapper">
 
     <section id="personal">
-        <div class="profile">
-            <div class="picture">
-                <img src="../../../../assets/profile_pictures/test_pp.jpg" alt="" srcset="">
+        <div class="personal-wrap" (click)="goToProfile()">
+            <div class="profile">
+                <div class="picture">
+                    <img src="../../../../assets/profile_pictures/Screenshot 2024-02-18 193439.png" alt="" srcset="">
+                </div>
+                <div class="name">{{ loggedInUser.sub }}</div>
             </div>
-            <div class="name">Onodwa Siyotula</div>
+            <div class="bio">
+                Wake up to reality
+            </div>
         </div>
     </section>
     
     <section id="posts">
+        <div class="create-post-wrap">
+            <div class="create-post">
+                <input placeholder="Create a post" #createPost />
+                <hr id="hr" />
+                <div class="postButton">
+                    <app-button name="Post" (click)="submitPost(createPost.value)"></app-button>
+                </div>
+            </div>
+        </div>
+
         <app-post [data]="postData" *ngFor="let postData of posts"></app-post>
     </section>
     
     <section id="requests">
         <h3>Friend requests</h3>
-    </section>    
+        <br/>
+        <hr/>
+
+        <ul class="requests">
+            <li class="request" *ngFor="let request of requests">
+                <div class="picture">
+                    <img src="../../../../assets/profile_pictures/Screenshot 2024-02-18 193746.png" alt="" srcset="">
+                </div>
+                <div class="name">Maxwell Jejkkss</div>
+                <div class="action">
+                    <img src="../../../../assets/icons/check-circle.png" alt="" srcset="">
+                    <img src="../../../../assets/icons/cross-circle.png" alt="" srcset="">
+                </div>
+            </li>
+        </ul>
+    </section>
 </div>

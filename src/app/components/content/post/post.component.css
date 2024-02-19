@@ -18,6 +18,11 @@
     font-weight: lighter;
 }
 
+.name-and-date a {
+    text-decoration: none;
+    color: rgb(122, 122, 122);
+}
+
 .profile-image {
     border-radius: 50%;
     overflow: hidden;
@@ -32,13 +37,15 @@
 } */
 
 .post {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     padding: 40px;
-    border-radius: 25px;
+    border-radius: 10px;
     width: 500px;
     margin: auto;
     position: relative;
-    z-index: -1;
+    background-color: white;
+    margin-bottom: 30px;
+    /* z-index: 1; */
 }
 
 #message {

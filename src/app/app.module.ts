@@ -14,6 +14,12 @@ import { PostComponent } from './components/content/post/post.component';
 import { CommentComponent } from './components/content/comment/comment.component';
 import { LoginFormComponent } from './components/content/login-form/login-form.component';
 import { SignupFormComponent } from './components/content/signup-form/signup-form.component';
+import { SearchComponent } from './components/pages/search/search.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { CommentPageComponent } from './components/pages/comment-page/comment-page.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { TokenInterceptorService } from './services/interceptor/token/token-interceptor.service';
+
 
 @NgModule({
   declarations: [
@@ -28,13 +34,18 @@ import { SignupFormComponent } from './components/content/signup-form/signup-for
     PostComponent,
     CommentComponent,
     LoginFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    SearchComponent,
+    CommentPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass:TokenInterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

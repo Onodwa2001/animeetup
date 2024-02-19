@@ -1,27 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Post } from 'src/app/models/Post';
+import { PostServiceService } from 'src/app/services/post/post-service.service';
+import { SharedService } from 'src/app/services/shared/shared.service';
 
 @Component({
   selector: 'app-newsfeed',
   templateUrl: './newsfeed.component.html',
   styleUrls: ['./newsfeed.component.css']
 })
-export class NewsfeedComponent {
+export class NewsfeedComponent implements OnInit {
 
-  posts: Array<any> = [
-    {
-      name: 'dfdjsgk',
-      date: '20 March 2023',
-      message: 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.',
-      votes: 0,
-      comments: 0
-    },
-    {
-      name: 'test',
-      date: '10 February 2024',
-      message: 'Hello There',
-      votes: 1,
-      comments: 0
-    },
+  public loggedInUser: any = {};
+
+  public posts: Array<Post> = [
   ];
+
+  inputStyle: {} = {
+    "padding": "15px",
+    "width": "500px"
+  }
+
+  requests: Array<any> = [
+    {name: "", date: "", picture: ""},
+    {name: "", date: "", picture: ""},
+    {name: "", date: "", picture: ""},
+    {name: "", date: "", picture: ""}
+  ]
+
+  constructor(private postService: PostServiceService, private shared: SharedService, private router: Router) {
+
+  }
+
+  ngOnInit(): void {
+    let token: any = localStorage.getItem('auth_token');
+    let user = token ? JSON.parse(atob(token.split('.')[1])) : '';
+    this.loggedInUser = user;
+    this.getAllPosts();
+  }
+
+  getAllPosts(): void {
+    this.postService.getPosts().subscribe(data => {
+      this.posts = data;
+      console.log(this.posts);
+    });
+  }
+
+  submitPost(input: any): void {
+    this.postService.createPost(input).subscribe(result => {
+      alert('Post created');
+      location.reload();
+    });
+  }
+
+  goToProfile(): void {
+    this.router.navigate(['/profile']);
+  }
 
 }

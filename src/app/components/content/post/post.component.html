@@ -8,18 +8,18 @@
             <img src="../../../../assets/profile_pictures/test_pp.jpg" alt="" srcset="">
         </div>
         <div class="name-and-date">
-            <h1>{{ data.name }} <span id="post-user-icon"><img src="../../../../assets/icons/user.png" alt=""></span></h1>
-            <p>{{ data.date }}</p>
+            <h1>{{ data.postAuthor.firstName }} {{ data.postAuthor.lastName }} <span id="post-user-icon"><img src="../../../../assets/icons/user.png" alt=""></span></h1>
+            <p><a href="#">{{ data.date }}</a></p>
         </div>
         
     </div>
-    <p id="message" #postMessage>{{ data.message }}</p>
-    <hr/>
+    <p id="message" #postMessage>{{ data.postMessage }}</p>
+    <!-- <hr/> -->
     <div class="interaction">
         <div class="vote">
             <div class="votes-wrap">
                 <img src="../../../../assets/icons/up.png" alt="" srcset="">
-                <span id="votes">{{ data.votes }}</span>
+                <span id="votes">{{ data.upVotes - data.downVotes }}</span>
                 <img src="../../../../assets/icons/down.png" alt="">
             </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="comment">
             <div class="comment-wrap">
                 <img src="../../../../assets/icons/comment-dots.png" alt="" srcset="">
-                <span id="comments">{{ data.comments }}</span>
+                <span id="comments">{{ data.numberOfComments }}</span>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <hr/>
+    <!-- <hr/> -->
 
     <div class="write-comment">
         <div class="profile-image">

@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { SharedService } from 'src/app/services/shared/shared.service';
 
 @Component({
   selector: 'app-input-box',
@@ -8,4 +9,13 @@ import { Component, Input } from '@angular/core';
 export class InputBoxComponent {
   @Input() placeholder: String = '';
   @Input() styleObj: {} = {};
+  @Input() type: String = '';
+  @Input() formControlName = '';
+  value: String = '';
+
+  constructor(private shared: SharedService) {
+  }
+
+  
+
 }

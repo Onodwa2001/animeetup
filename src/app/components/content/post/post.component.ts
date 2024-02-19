@@ -1,4 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Post } from 'src/app/models/Post';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-post',
@@ -12,18 +14,25 @@ export class PostComponent implements OnInit {
     "width": "300px"
   }
 
-  @Input() data = {
-    name: '',
-    date: '',
-    message: '',
-    votes: 0,
-    comments: 0
+  @Input() data: Post = {
+    postId: String(),
+    postMessage: String(),
+    upVotes: 0,
+    downVotes: 0,
+    numberOfComments: 0,
+    date: String(),
+    postAuthor: {
+      username: String(),
+      password: String(),
+      firstName: String(),
+      lastName: String()
+    }
   };
 
   @ViewChild('postMessage', { static: true }) myElement!: ElementRef;
 
   ngOnInit(): void {
-    if (this.data.message.length > 70) {
+    if (this.data.postMessage.length > 70) {
       this.myElement.nativeElement.style.fontSize = '15px';
       this.myElement.nativeElement.style.lineHeight = '1.6em';
       console.log(this.myElement);

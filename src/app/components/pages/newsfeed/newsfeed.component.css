@@ -1,7 +1,9 @@
 .feed-wrapper {
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 23% 52% 25%;
     padding-top: 70px;
+    width: 80%;
+    margin: auto;
 }
 
 section {
@@ -23,10 +25,29 @@ section {
     align-items: center; 
     justify-content: center;
     width: fit-content;
+    margin: auto;
+}
+
+.personal-wrap {
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: white;
+}
+
+.personal-wrap:hover {
+    cursor: pointer;
+}
+
+.personal-wrap .bio {
+    color: #908e8e;
+    margin-top: 15px;
 }
 
 #posts {
-    max-height: 100vh;
+    max-height: 80vh;
     overflow-y: auto;
 }
 
@@ -41,4 +62,75 @@ section {
 
 #posts::-webkit-scrollbar-track {
     background-color: #f1f1f1; /* Color of the scrollbar track */
+}
+
+.create-post-wrap {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+input {
+    padding: 15px;
+    width: 500px;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    background-color: rgb(234, 233, 233);
+}
+
+#hr {
+    margin-top: 20px;
+}
+
+.postButton {
+    width: 100%;
+    position: relative;
+    height: 40px;
+}
+
+app-button {
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+
+.create-post {
+    width: fit-content;
+    margin: auto;
+}
+
+.requests {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.requests li {
+    display: flex;
+    /* margin-bottom: 10px; */
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.requests li:hover {
+    background-color: #dfdbdb;
+    transition: .3s;
+    border-radius: 10px;
+}
+
+.action {
+    display: flex;
+}
+
+.action img {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.action img:nth-child(1) {
+    margin-left: 50px;
 }
