@@ -1,6 +1,6 @@
 .feed-wrapper {
     display: grid;
-    grid-template-columns: 23% 52% 25%;
+    grid-template-columns: 24% 52% 24%;
     padding-top: 70px;
     width: 80%;
     margin: auto;
@@ -133,4 +133,11 @@ app-button {
 
 .action img:nth-child(1) {
     margin-left: 50px;
+}
+
+.modal {
+    position: fixed;
+    width: 50%;
+    margin-left: 15%;
+    height: 70vh;
 }

@@ -6,7 +6,7 @@
                 <div class="picture">
                     <img src="../../../../assets/profile_pictures/Screenshot 2024-02-18 193439.png" alt="" srcset="">
                 </div>
-                <div class="name">{{ loggedInUser.sub }}</div>
+                <div class="name">{{ loggedInUser ? loggedInUser.sub : 'Log in' }}</div>
             </div>
             <div class="bio">
                 Wake up to reality
@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <app-post [data]="postData" *ngFor="let postData of posts"></app-post>
+        <app-post [data]="postData" *ngFor="let postData of posts" (dataEvent)="messageFromChild($event)" (postIdEvent)="postIdMessageFromChild($event)"></app-post>
     </section>
     
     <section id="requests">
@@ -46,4 +46,7 @@
             </li>
         </ul>
     </section>
+    <div class="modal" *ngIf="signal" #commentModal>
+        <comment-modal id="comment-modal" [postId]="postId" (closeEvent)="closeSignalFromComment()"></comment-modal>
+    </div>
 </div>

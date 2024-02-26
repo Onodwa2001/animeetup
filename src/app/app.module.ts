@@ -19,6 +19,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CommentPageComponent } from './components/pages/comment-page/comment-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TokenInterceptorService } from './services/interceptor/token/token-interceptor.service';
+import { CommentModalComponent } from './components/content/modals/comment-modal/comment-modal.component';
+import { EditProfileModalComponent } from './components/content/modals/edit-profile-modal/edit-profile-modal.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { TokenInterceptorService } from './services/interceptor/token/token-inte
     LoginFormComponent,
     SignupFormComponent,
     SearchComponent,
-    CommentPageComponent
+    CommentPageComponent,
+    CommentModalComponent,
+    EditProfileModalComponent
   ],
   imports: [
     BrowserModule,

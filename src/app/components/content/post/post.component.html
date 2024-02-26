@@ -13,21 +13,23 @@
         </div>
         
     </div>
-    <p id="message" #postMessage>{{ data.postMessage }}</p>
+    <div class="message-wrapper">
+        <p id="message" title="Read post" #postMessage (click)="notifyParents()">{{ data.postMessage }}</p>
+    </div>
     <!-- <hr/> -->
     <div class="interaction">
         <div class="vote">
             <div class="votes-wrap">
-                <img src="../../../../assets/icons/up.png" alt="" srcset="">
+                <img src="../../../../assets/icons/up.png" alt="" id="upVoteImg" (click)="upVote()">
                 <span id="votes">{{ data.upVotes - data.downVotes }}</span>
-                <img src="../../../../assets/icons/down.png" alt="">
+                <img src="../../../../assets/icons/down.png" id="downVoteImg" alt="" (click)="downVote()">
             </div>
         </div>
 
         <div class="comment">
             <div class="comment-wrap">
                 <img src="../../../../assets/icons/comment-dots.png" alt="" srcset="">
-                <span id="comments">{{ data.numberOfComments }}</span>
+                <span id="comments">Comment</span>
             </div>
         </div>
 
@@ -44,6 +46,9 @@
         <div class="profile-image">
             <img src="../../../../assets/profile_pictures/test_pp.jpg" alt="" srcset="">
         </div>
-        <app-input-box placeholder="Write a comment" [styleObj]="inputStyle"></app-input-box>
+        <!-- <app-input-box placeholder="Write a comment" [styleObj]="inputStyle"></app-input-box> -->
+        <input type="text" placeholder="Write a comment" class="write-comment-input" id="{{ data.postId }}" #commentInput>
+        <app-button *ngIf="isLoading" name="Loading" id="send-btn"></app-button>
+        <app-button *ngIf="!isLoading" name="Send" id="send-btn" (click)="createComment(data.postId, commentInput.value)" #sendBtn></app-button>
     </div>
 </div>

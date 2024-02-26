@@ -1,0 +1,52 @@
+<div class="comments-wrap">
+    <h1>{{ post?.post.postAuthor.username }}'s post</h1>
+    <div class="close" (click)="closeModal()">
+        <img src="../../../../../assets/icons/cross.png" width="20px" height="20px" alt="" srcset="">
+    </div>
+    <br/>
+    <div class="content">
+        <div class="post">
+            <p>{{ post?.post.postMessage }}</p>
+        </div>
+
+        <br/>
+        <hr/>
+
+        <div class="interaction">
+            <div class="vote">
+                <div class="votes-wrap">
+                    <img src="../../../../assets/icons/up.png" alt="" srcset="">
+                    <span id="votes">{{ post?.post.upVotes - post?.post.downVotes }}</span>
+                    <img src="../../../../assets/icons/down.png" alt="">
+                </div>
+            </div>
+    
+            <div class="comment">
+                <div class="comment-wrap">
+                    <img src="../../../../assets/icons/comment-dots.png" alt="" srcset="">
+                    <span id="comments">Comment</span>
+                </div>
+            </div>
+    
+            <div class="save">
+                <div class="save-wrap">
+                    <img src="../../../../assets/icons/bookmark.png" alt="" srcset="">
+                    <span id="save">Save</span>
+                </div>
+            </div>
+        </div>
+
+        <hr/>
+    
+        <div class="comments">
+            <app-comment *ngFor="let comment of post?.comments" [comment]="comment"></app-comment>
+        </div>
+
+        <div class="write-comment">
+            <hr/>
+            <form action="">
+                <input type="text" placeholder="Write your comment here" #commentInput (keyup.enter)="createComment(post?.post.postId, commentInput.value)">
+            </form>
+        </div>
+    </div>
+</div>

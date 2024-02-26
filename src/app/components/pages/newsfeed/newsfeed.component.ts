@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/models/Post';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { PostServiceService } from 'src/app/services/post/post-service.service';
 import { SharedService } from 'src/app/services/shared/shared.service';
 
@@ -12,9 +13,12 @@ import { SharedService } from 'src/app/services/shared/shared.service';
 export class NewsfeedComponent implements OnInit {
 
   public loggedInUser: any = {};
-
   public posts: Array<Post> = [
   ];
+  @ViewChild('commentModal', { static: true }) commentModalElement!: ElementRef;
+  @ViewChild('createPost', { static: true }) createPostElement!: ElementRef;
+  signal: boolean = false;
+  postId: string = '';
 
   inputStyle: {} = {
     "padding": "15px",
@@ -28,8 +32,8 @@ export class NewsfeedComponent implements OnInit {
     {name: "", date: "", picture: ""}
   ]
 
-  constructor(private postService: PostServiceService, private shared: SharedService, private router: Router) {
-
+  constructor(private postService: PostServiceService, 
+              private shared: SharedService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -42,19 +46,42 @@ export class NewsfeedComponent implements OnInit {
   getAllPosts(): void {
     this.postService.getPosts().subscribe(data => {
       this.posts = data;
-      console.log(this.posts);
     });
   }
 
   submitPost(input: any): void {
-    this.postService.createPost(input).subscribe(result => {
-      alert('Post created');
-      location.reload();
-    });
+    if (this.loggedInUser) {
+      this.postService.createPost(input).subscribe(result => {
+        // this.createPostElement.nativeElement.value = '';
+        location.reload();
+      });
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   goToProfile(): void {
-    this.router.navigate(['/profile']);
+    if (this.loggedInUser) {
+      this.router.navigate(['/profile']);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  messageFromChild(signal: boolean) {
+    this.signal = signal;
+  }
+
+  openCommentModal(): void {
+    this.commentModalElement.nativeElement.style.display = 'block';
+  }
+
+  postIdMessageFromChild(id: string) {
+    this.postId = id;
+  }
+
+  closeSignalFromComment() {
+    this.signal = false;
   }
 
 }

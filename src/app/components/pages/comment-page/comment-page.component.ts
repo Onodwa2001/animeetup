@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/Post';
+import { CommentService } from 'src/app/services/comment/comment.service';
 
 @Component({
   selector: 'app-comment-page',
@@ -8,6 +9,8 @@ import { Post } from 'src/app/models/Post';
 })
 export class CommentPageComponent implements OnInit {
   
+  isLoading: boolean = false;
+
   currentPost: any = {
     post: {
       postId: "",
@@ -26,7 +29,7 @@ export class CommentPageComponent implements OnInit {
     comments: []
   }
 
-  constructor() {
+  constructor(private commentService: CommentService) {
 
   }
 
@@ -37,5 +40,7 @@ export class CommentPageComponent implements OnInit {
   getCurrentPost(): void {
 
   }
+
+  
 
 }

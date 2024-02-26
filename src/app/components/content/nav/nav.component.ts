@@ -9,7 +9,7 @@ export class NavComponent {
   
   inputStyle: {} = {
     "padding": "15px",
-    "width": "500px"
+    "width": "300px"
   }
 
 }

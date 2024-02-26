@@ -25,7 +25,6 @@
 
 .profile-wrap .profile-details {
     background-color: white;
-    padding-bottom: 50px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -71,4 +70,20 @@
 
 .details p {
     color: #5d5a5a;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+    width: 100%;
+    background-color: #efecec;
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.options a {
+    text-decoration: none;
+    color: black;
 }

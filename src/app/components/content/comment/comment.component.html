@@ -1,1 +1,17 @@
-<p>comment works!</p>
+<div class="comment-wrap">
+    <div class="comment">
+        <div class="comment">
+            <div class="image">
+                <img src="../../../../assets/profile_pictures/test_pp.jpg" alt="" srcset="">
+            </div>
+            <div class="name-and-message">
+                <h5>{{ comment?.commentAuthor.username }} <span id="time">2h</span></h5>
+                <p>{{ comment?.commentMessage }}</p>
+                <div class="comment-details">
+                    {{ comment?.upVotes - comment?.downVotes }} votes -
+                    <span>Reply</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

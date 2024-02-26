@@ -45,12 +45,15 @@
     position: relative;
     background-color: white;
     margin-bottom: 30px;
-    /* z-index: 1; */
 }
 
 #message {
     font-size: 28px;
     font-weight: -100;
+}
+
+#message:hover {
+    cursor: pointer;
 }
 
 #post-user-icon img {
@@ -61,6 +64,14 @@
 .post p {
     margin-top: 30px;
     margin-bottom: 30px;
+    /* width: 100%; */
+}
+
+.post p:hover {
+    background-color: rgb(240, 239, 239);
+    border-radius: 8px;
+    padding: 12px;
+    transition: .3s;
 }
 
 .interaction {
@@ -98,6 +109,10 @@
     width: fit-content;
 }
 
+.comment-wrap:hover {
+    cursor: pointer;
+}
+
 .save-wrap {
     margin: 0 auto 0 auto;
     width: fit-content;
@@ -106,6 +121,14 @@
 .write-comment {
     display: flex;
     margin-top: 20px;
+}
+
+#upVoteImg {
+    cursor: pointer;
+}
+
+#downVoteImg {
+    cursor: pointer;
 }
 
 
@@ -118,4 +141,31 @@
 .edit img {
     width: 20px;
     height: 20px;
+    cursor: pointer;
+}
+
+
+app-button {
+    margin-left: 15px;
+}
+
+.write-comment-input {
+    /* margin-left: 5px; */
+    width: 300px;
+    background-color: rgb(234, 233, 233);
+    border-radius: 50px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    padding-left: 20px;
+}
+
+#send-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    
 }

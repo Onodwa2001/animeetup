@@ -1,6 +1,8 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Post } from 'src/app/models/Post';
 import { User } from 'src/app/models/User';
+import { CommentService } from 'src/app/services/comment/comment.service';
+import { PostServiceService } from 'src/app/services/post/post-service.service';
 
 @Component({
   selector: 'app-post',
@@ -29,14 +31,58 @@ export class PostComponent implements OnInit {
     }
   };
 
-  @ViewChild('postMessage', { static: true }) myElement!: ElementRef;
+  @ViewChild('postMessage', { static: true }) postMessageElement!: ElementRef;
+  @ViewChild('sendBtn', { static: true }) sendBtnElement!: ElementRef;
+  @ViewChild('commentInput', { static: true }) commentInputElement!: ElementRef;
+  @Output() dataEvent = new EventEmitter<boolean>();
+  @Output() postIdEvent = new EventEmitter<string>();
+  isLoading: boolean = false;
+
+  constructor(private postService: PostServiceService, private commentService: CommentService) {}
 
   ngOnInit(): void {
     if (this.data.postMessage.length > 70) {
-      this.myElement.nativeElement.style.fontSize = '15px';
-      this.myElement.nativeElement.style.lineHeight = '1.6em';
-      console.log(this.myElement);
+      this.postMessageElement.nativeElement.style.fontSize = '15px';
+      this.postMessageElement.nativeElement.style.lineHeight = '1.6em';
+      console.log(this.postMessageElement);
     }
+  }
+
+  notifyParents() {
+    this.dataEvent.emit(true);
+    this.postIdEvent.emit(this.data.postId.toString());
+  }
+
+  upVote() {
+    this.postService.upVote(this.data.postId.toString()).subscribe(vote => {
+      console.log(vote.post);
+      this.data.downVotes = vote.post.downVotes;
+      this.data.upVotes = vote.post.upVotes;
+    });
+  }
+
+  downVote() {
+    this.postService.downVote(this.data.postId.toString()).subscribe(vote => {
+      console.log(vote.post);
+      this.data.downVotes = vote.post.downVotes;
+      this.data.upVotes = vote.post.upVotes;
+    });
+  }
+
+  createComment(postId: any, commentInput: string) {
+    const commentData = {
+      commentMessage: commentInput,
+      post: {
+        postId
+      }
+    }
+
+    this.isLoading = true;
+
+    this.commentService.createComment(commentData).subscribe(comment => {
+      this.isLoading = false
+      this.commentInputElement.nativeElement.value = '';
+    })
   }
 
 }
