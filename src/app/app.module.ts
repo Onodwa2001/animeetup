@@ -21,6 +21,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TokenInterceptorService } from './services/interceptor/token/token-interceptor.service';
 import { CommentModalComponent } from './components/content/modals/comment-modal/comment-modal.component';
 import { EditProfileModalComponent } from './components/content/modals/edit-profile-modal/edit-profile-modal.component';
+import { ChatComponent } from './components/content/chat/chat.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { EditProfileModalComponent } from './components/content/modals/edit-prof
     SearchComponent,
     CommentPageComponent,
     CommentModalComponent,
-    EditProfileModalComponent
+    EditProfileModalComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

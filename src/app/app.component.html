@@ -1,2 +1,2 @@
-<app-nav *ngIf="url != '/login'"></app-nav>
+<app-nav *ngIf="url != '/login'" (chatPopupSignal)="receiveChatSignal($event)"></app-nav>
 <router-outlet></router-outlet>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { SharedService } from './services/shared/shared.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent implements OnInit {
   title = 'Animeetup';
   url = '';
 
-  constructor(private router: Router) { }  
+  constructor(private router: Router, private sharedService: SharedService) { }  
 
   ngOnInit(): void {
     // we don't want to show the navbar in the login page
@@ -22,4 +23,10 @@ export class AppComponent implements OnInit {
       }
     });
   }
+
+  receiveChatSignal(data: any) {
+    this.sharedService.setData(data);
+    console.log(data);
+  }
+
 }

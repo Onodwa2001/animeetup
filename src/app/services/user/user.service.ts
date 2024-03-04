@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,10 @@ export class UserService {
 
   login(username: string, password: string) {
     return this.http.post(this._auth_url, { username, password });
+  }
+
+  getUsers(): Observable<Array<User>> {
+    return this.http.get<Array<User>>(this._url + 'get_all');
   }
 
 }

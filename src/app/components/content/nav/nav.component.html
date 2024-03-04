@@ -6,7 +6,7 @@
     <app-input-box placeholder="Search for users" [styleObj]="inputStyle"></app-input-box>
 
     <ul>
-        <li><a routerLink="/feed"><img src="../../../../assets/icons/paper-plane.png" alt=""></a></li>
+        <li><a (click)="sendPopupSignal()"><img src="../../../../assets/icons/paper-plane.png" alt=""></a></li>
         <li><a routerLink="/profile"><img src="../../../../assets/icons/bell.png" alt="" srcset=""></a></li>
         <li><a routerLink="/login"><img src="../../../../assets/icons/enter.png" alt="" srcset=""></a></li>
     </ul>

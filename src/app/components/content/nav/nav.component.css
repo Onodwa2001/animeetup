@@ -45,3 +45,6 @@ img {
     left: 20px;
 }
 
+a {
+    cursor: pointer;
+}

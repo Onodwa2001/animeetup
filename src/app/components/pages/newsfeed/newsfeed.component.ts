@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/models/Post';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -13,11 +13,12 @@ import { SharedService } from 'src/app/services/shared/shared.service';
 export class NewsfeedComponent implements OnInit {
 
   public loggedInUser: any = {};
-  public posts: Array<Post> = [
-  ];
+  public posts: Array<Post> = [];
   @ViewChild('commentModal', { static: true }) commentModalElement!: ElementRef;
+  @ViewChild('chatModal', { static: true }) chatModalElement!: ElementRef;
   @ViewChild('createPost', { static: true }) createPostElement!: ElementRef;
   signal: boolean = false;
+  chatSignal: boolean = false;
   postId: string = '';
 
   inputStyle: {} = {
@@ -41,6 +42,10 @@ export class NewsfeedComponent implements OnInit {
     let user = token ? JSON.parse(atob(token.split('.')[1])) : '';
     this.loggedInUser = user;
     this.getAllPosts();
+
+    this.shared.getData().subscribe(res => {
+      this.chatSignal = res;
+    });
   }
 
   getAllPosts(): void {
@@ -78,6 +83,10 @@ export class NewsfeedComponent implements OnInit {
 
   postIdMessageFromChild(id: string) {
     this.postId = id;
+  }
+
+  openChatModal(): void {
+    this.chatModalElement.nativeElement.style.display = 'block';
   }
 
   closeSignalFromComment() {

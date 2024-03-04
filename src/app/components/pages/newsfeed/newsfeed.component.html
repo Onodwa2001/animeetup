@@ -49,4 +49,6 @@
     <div class="modal" *ngIf="signal" #commentModal>
         <comment-modal id="comment-modal" [postId]="postId" (closeEvent)="closeSignalFromComment()"></comment-modal>
     </div>
+
+    <chat *ngIf="chatSignal" #chatModal></chat>
 </div>
